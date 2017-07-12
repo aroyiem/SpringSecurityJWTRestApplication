@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author 330085
+ * @author subho
  */
 @Repository("userProfileDao")
 public class UserProfileDao {

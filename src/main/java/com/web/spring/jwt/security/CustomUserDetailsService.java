@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
- * @author 330085
+ * @author subho
  */
 @Service("customUserDetailsService")
 public class CustomUserDetailsService implements UserDetailsService{
@@ -38,12 +38,13 @@ public class CustomUserDetailsService implements UserDetailsService{
         AppUser user = userRepo.findBySsoId(username);
         LOGGER.info("User : {}"+ user);
         
+        
         if(user == null){
             LOGGER.info("User not found");
-            throw new UsernameNotFoundException("Username not found");
+            throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
         }
-        
-        return new User(user.getSsoId(), user.getPassword(), true, true, true, true, getGrantedAuthorities(user));
+        return JwtUserFactory.create(user);
+        //return new User(user.getSsoId(), user.getPassword(), true, true, true, true, getGrantedAuthorities(user));
     }
     
     private List<GrantedAuthority> getGrantedAuthorities(AppUser user){

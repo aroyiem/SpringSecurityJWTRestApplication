@@ -7,7 +7,7 @@ package com.web.spring.jwt.entities;
 
 /**
  *
- * @author 330085
+ * @author subho
  */
 public enum SocialSigninProvider {
     

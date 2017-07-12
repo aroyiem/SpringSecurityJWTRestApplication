@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
- * @author 330085
+ * @author subho
  */
 public interface UserProfileRepo extends JpaRepository<UserProfile, Integer>{
     

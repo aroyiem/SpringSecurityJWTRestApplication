@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *
- * @author 330085
+ * @author subho
  */
 public interface UserService {
     
